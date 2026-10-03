@@ -1,10 +1,11 @@
 import { createClient } from "@supabase/supabase-js";
 
 const supaUrl = import.meta.env.VITE_SUPABASE_URL;
-const supakey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+const supaKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
-if(!supaUrl || !supakey){
-    throw new Error("missing env")
+if (!supaUrl || !supaKey) {
+  throw new Error("Missing VITE_SUPABASE_URL or VITE_SUPABASE_PUBLISHABLE_KEY in .env");
 }
 
-export const db = createClient(supaUrl,supakey);
+// Online database + auth
+export const db = createClient(supaUrl, supaKey);
